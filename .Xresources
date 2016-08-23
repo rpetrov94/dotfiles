@@ -1,0 +1,9 @@
+URxvt.depth: 32
+
+URxvt.scrollBar: false
+
+URxvt.internalBorder: 5
+
+#include ".Xresources.d/font.conf"
+#include ".Xresources.d/copy-pase.conf"
+#include ".Xresources.d/colors/zenburn.conf"
