@@ -1,5 +1,5 @@
 [global]
-    font = terminusmodx 8
+    font = inconsolata for powerline 24
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -64,7 +64,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-     geometry = "350x1+1545-15"
+    geometry = "720x1-42+74"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -139,7 +139,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
     
     # Browser for opening urls in context menu.
-    browser = /usr/bin/qutebrowser
+    browser = /usr/bin/firefox
 
     # Align icons left/right/off
     icon_position = off
@@ -149,7 +149,7 @@
 
 [frame]
     width = 2
-    color = "#267682"
+    color = "#815ba4"
 
 [shortcuts]
 
@@ -170,13 +170,13 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#202020"
-    foreground = "#51C4D4"
+    background = "#2F1E2E"
+    foreground = "#AB4642"
     timeout = 10
 
 [urgency_normal]
-    background = "#51C4D4"
-    foreground = "#202020"
+    background = "#2F1E2E"
+    foreground = "#AB4642"
     timeout = 10
 
 [urgency_critical]
@@ -237,9 +237,9 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
-[irc]
-    appname = "weechat"
-    format  = "%s: %b"
-    urgency = normal
+#[irc]
+#    appname = "weechat"
+#    format  = "%s: %b"
+#    urgency = normal
 
 # vim: ft=cfg

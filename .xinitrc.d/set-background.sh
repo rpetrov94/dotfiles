@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-hsetroot -solid "#000000"
+hsetroot -full ~/pictures/wallpapers/pattern-black.png

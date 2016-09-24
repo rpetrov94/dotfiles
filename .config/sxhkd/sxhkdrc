@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	urxvtc
 
 # program launcher
 super + space
-	dmenu_run -p ">" -b -nb "#d65f34" -sb "#ad4333"
+	dmenu_run -p ">" -b -nb "#815ba4" -sb "#2f1e2e"
 
 # make sxhkd reload its configuration files:
 super + Escape
