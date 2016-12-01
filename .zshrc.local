@@ -1,0 +1,1 @@
+alias stow="stow -d ~/.files_of_dot"
