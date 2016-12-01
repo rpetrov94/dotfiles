@@ -29,6 +29,7 @@ if [ -d $HOME/.xinitrc.d ] ; then
  done
 fi
 
+xsetroot -cursor_name left_ptr
 export TERMINAL=termite
 
 exec i3
