@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 
-hsetroot -fill ~/pictures/wallpapers/current.jpg
+feh --bg-scale ~/pictures/wallpapers/current.jpg
