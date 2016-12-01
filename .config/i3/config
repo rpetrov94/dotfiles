@@ -196,6 +196,4 @@ bindsym XF86AudioPause exec playerctl pause-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-exec spotify
-exec hsetroot -fill ~/pictures/wallpapers/current.jpg
-exec compton
+exec_always wmname LG3D
