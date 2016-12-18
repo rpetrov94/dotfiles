@@ -1,5 +1,5 @@
 [options]
-font = Roboto Mono for Powerline 9
+font = Hack 9
 cursor_shape = ibeam
 
 [colors]
