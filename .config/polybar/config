@@ -1,0 +1,222 @@
+[bar/top]
+monitor = DP-0
+width = 100%
+height = 40
+
+background = #00000000
+foreground = #ccffffff
+
+line-color = ${bar/bottom.background}
+line-size = 0
+
+padding-right = 5
+module-margin = 4
+
+font-0 = SFNSDisplay:size=14;-1
+font-1 = MaterialIcons:size=16;0
+font-2 = Termsynu:size=14:antialias=false;-2
+font-3 = FontAwesome:size=16;0
+
+modules-left = powermenu
+modules-center = spotify
+modules-right = volume wired-network date
+
+[bar/bottom]
+monitor = DP-0
+bottom = true
+width = 100%
+height = 40
+
+tray-position = center
+tray-maxsize = 32
+tray-background = ${bar/top.background}
+tray-scale = 1.0
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+
+line-color = ${bar/top.background}
+line-size = 2
+
+spacing = 10
+padding-right = 4
+padding-left = 4
+module-margin-left = 0
+module-margin-right = 6
+
+font-0 = SFNSDisplay:size=14;0
+font-1 = unifont:size=12;-3
+font-2 = FontAwesome:size=16;-2
+font-3 = NotoSans-Regular:size=14;-1
+font-4 = MaterialIcons:size=16;-1
+font-5 = Termsynu:size=14:antialias=false;0
+
+modules-left = i3
+modules-right = cpu memory
+
+[module/i3]
+type = internal/i3
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 10;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 4
+label-mode-background = #773f3f3f
+
+#label-dimmed-underline = ${BAR.background}
+
+label-focused = %icon%
+label-focused-foreground = #fff
+label-focused-background = #773f3f3f
+label-focused-underline = #c9665e
+label-focused-font = 4
+label-focused-padding = 4
+
+label-unfocused = %icon%
+label-unfocused-foreground = #dd
+label-unfocused-underline = #666
+label-unfocused-font = 4
+label-unfocused-padding = 4
+
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+label-urgent-font = 4
+label-urgent-padding = 4
+
+label-visible = %icon%
+label-visible-foreground = #55
+label-visible-font = 4
+label-visible-padding = 4
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label> <ramp-coreload>
+label = CPU
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 2
+ramp-coreload-0-foreground = #aaff77
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 2
+ramp-coreload-1-foreground = #aaff77
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 2
+ramp-coreload-2-foreground = #aaff77
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 2
+ramp-coreload-3-foreground = #aaff77
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 2
+ramp-coreload-4-foreground = #fba922
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 2
+ramp-coreload-5-foreground = #fba922
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 2
+ramp-coreload-6-foreground = #ff5555
+ramp-coreload-7 = █
+ramp-coreload-7-font = 2
+ramp-coreload-7-foreground = #ff5555
+
+[module/date]
+type = internal/date
+date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+[module/memory]
+type = internal/memory
+format = <label> <bar-used>
+label = RAM
+
+bar-used-width = 30
+bar-used-foreground-0 = #aaff77
+bar-used-foreground-1 = #aaff77
+bar-used-foreground-2 = #fba922
+bar-used-foreground-3 = #ff5555
+bar-used-indicator = |
+bar-used-indicator-font = 6
+bar-used-indicator-foreground = #ff
+bar-used-fill = ─
+bar-used-fill-font = 6
+bar-used-empty = ─
+bar-used-empty-font = 6
+bar-used-empty-foreground = #444444
+
+[module/wired-network]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+
+label-connected =    %{T3}%local_ip%%{T-}
+label-disconnected-foreground = #66
+
+[module/volume]
+type = internal/volume
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+[module/powermenu]
+type = custom/menu
+
+label-open = 
+label-close = 
+
+format-padding = 5
+
+menu-0-0 = Terminate WM
+menu-0-0-foreground = #fba922
+menu-0-0-exec = bspc quit -1
+menu-0-1 = Reboot
+menu-0-1-foreground = #fba922
+menu-0-1-exec = menu_open-1
+menu-0-2 = Power off
+menu-0-2-foreground = #fba922
+menu-0-2-exec = menu_open-2
+
+menu-1-0 = Cancel
+menu-1-0-foreground = #fba922
+menu-1-0-exec = menu_open-0
+menu-1-1 = Reboot
+menu-1-1-foreground = #fba922
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = Power off
+menu-2-0-foreground = #fba922
+menu-2-0-exec = sudo poweroff
+menu-2-1 = Cancel
+menu-2-1-foreground = #fba922
+menu-2-1-exec = menu_open-0
+
+[module/spotify]
+type = custom/script
+
+interval = 1
+
+label = %output%
+exec = ~/.config/polybar/scripts/spotify
+
+[module/clock]
+type = internal/date
+interval = 2
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+; vim:ft=dosini
+
