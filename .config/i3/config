@@ -15,6 +15,9 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:SFNS Display 9
 
+for_window [class="^.*"] border pixel 2
+gaps inner 20
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -92,13 +95,15 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1   "1: "
-set $workspace2   "2: "
-set $workspace10  "10: "
+#set $workspace1   "1: "
+#set $workspace2   "2: "
+#set $workspace10  "10: "
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
+#bindsym $mod+1 workspace $workspace1
+#bindsym $mod+2 workspace $workspace2
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace 3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
@@ -106,11 +111,14 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+0 workspace 10
+#bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
+#bindsym $mod+Shift+1 move container to workspace $workspace1
+#bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
@@ -118,9 +126,11 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+0 move container to workspace 10
+#bindsym $mod+Shift+0 move container to workspace $workspace10
 
-for_window [class="Spotify"] move to workspace $workspace10
+#for_window [class="Spotify"] move to workspace $workspace10
+for_window [class="Spotify"] move to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -156,38 +166,40 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 set $inactive-bg-color		#c5c8c6
-set $bg-color							#1d1f21
+set $bg-window						#1d1f21aa
+set $bg-color							#00000000
 set $text-color						#c5c8c6
 set $inactive-text-color	#1d1f21
 set $urgent-bg-color      #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.focused          $bg-window          $bg-window         $text-color          #00ff00
 client.unfocused        $inactive-bg-color 	$inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inactive-bg-color 	$inactive-bg-color $inactive-text-color #00ff00
 client.urgent 					$urgent-bg-color 		$urgent-bg-color 		$text-color 				#00ff00
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    colors {
-      background $bg-color
-      separator #757575
-                          #border            background         text
-      inactive_workspace  $bg-color          $bg-color          $text-color
-      focused_workspace   $inactive-bg-color $inactive-bg-color $inactive-text-color
-      urgent_workspace    $urgent-bg-color   $urgent-bg-color   $text-color
-    }
-}
+#bar {
+#  i3bar_command i3bar -t
+#  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#  tray_padding 0
+#  colors {
+#    background $bg-color
+#    separator #757575
+                        #border            background         text
+#    inactive_workspace  $bg-color          $bg-color          $text-color
+#    focused_workspace   $inactive-bg-color $inactive-bg-color $inactive-text-color
+#    urgent_workspace    $urgent-bg-color   $urgent-bg-color   $text-color
+#  }
+#}
 
-bindsym $mod+Shift+x exec i3lock
 default_orientation horizontal
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks 
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks 
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 
 # Media player controls
@@ -198,3 +210,6 @@ bindsym XF86AudioPrev exec playerctl previous
 
 exec_always xsetroot -cursor_name left_ptr
 exec_always wmname LG3D
+
+exec polybar top &
+exec polybar bottom &

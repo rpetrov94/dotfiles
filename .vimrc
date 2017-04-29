@@ -13,10 +13,13 @@ call vundle#begin()
   Plugin 'elixir-lang/vim-elixir'
   Plugin 'pangloss/vim-javascript'
   Plugin 'mxw/vim-jsx'
+  Plugin 'crabmusket/vim-taml'
+  Plugin 'crabmusket/vim-torquescript'
 
   " PLUGINS
   Plugin 'SirVer/ultisnips'
   Plugin 'honza/vim-snippets'
+  Plugin 'lervag/vimtex'
 call vundle#end()
 filetype plugin indent on
 
