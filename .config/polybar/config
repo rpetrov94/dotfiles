@@ -1,5 +1,5 @@
 [bar/top]
-monitor = DP-0
+monitor = eDP-1
 width = 100%
 height = 40
 
@@ -19,10 +19,10 @@ font-3 = FontAwesome:size=16;0
 
 modules-left = powermenu
 modules-center = spotify
-modules-right = volume wired-network date
+modules-right = volume wired-network battery date
 
 [bar/bottom]
-monitor = DP-0
+monitor = eDP-1
 bottom = true
 width = 100%
 height = 40
@@ -127,6 +127,39 @@ ramp-coreload-6-foreground = #ff5555
 ramp-coreload-7 = █
 ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = #ff5555
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
 
 [module/date]
 type = internal/date

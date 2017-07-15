@@ -195,6 +195,7 @@ client.urgent 					$urgent-bg-color 		$urgent-bg-color 		$text-color 				#00ff00
 #  }
 #}
 
+bindsym $mod+Shift+x exec i3lock
 default_orientation horizontal
 
 # Pulse Audio controls
@@ -210,6 +211,8 @@ bindsym XF86AudioPrev exec playerctl previous
 
 exec_always xsetroot -cursor_name left_ptr
 exec_always wmname LG3D
+
+exec_always nm-applet
 
 exec polybar top &
 exec polybar bottom &
